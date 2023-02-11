@@ -4,6 +4,9 @@ on:
   - push
   - pull_request
 
+env:
+  DJANGO_SETTINGS_MODULE: config.settings.dev
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
@@ -11,7 +14,7 @@ jobs:
       max-parallel: 4
       matrix:
         os: [ ubuntu-latest ]
-        python-version: ['3.9', '3.10', '3.10.7', '3.11.2']
+        python-version: [ '3.9', '3.10', '3.10.7', '3.11.2' ]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
