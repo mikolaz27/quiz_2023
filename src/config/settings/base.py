@@ -25,10 +25,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    "rest_framework",
     "phonenumber_field",
     "account",
     "core",
     "quiz",
+    "api",
 ]
 
 MIDDLEWARE = [

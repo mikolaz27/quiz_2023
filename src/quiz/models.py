@@ -23,6 +23,9 @@ class Quiz(BaseModel):
     category = models.ForeignKey(to="quiz.Category", related_name="quizzes", on_delete=models.CASCADE)
     level = models.PositiveSmallIntegerField(choices=LEVEL_CHOICES.choices, default=LEVEL_CHOICES.BASIC)
 
+    def __str__(self):
+        return f"{self.title} ({self.id})"
+
     def questions_count(self):
         return self.questions.count()
 
@@ -41,8 +44,14 @@ class Question(BaseModel):
     order_number = models.PositiveSmallIntegerField(validators=[MaxValueValidator(Quiz.QUESTION_MAX_LIMIT)])
     text = models.CharField(max_length=512)
 
+    def __str__(self):
+        return f"{self.text} ({self.order_number})"
+
 
 class Choice(BaseModel):
     question = models.ForeignKey(to="quiz.Question", related_name="choices", on_delete=models.CASCADE)
     text = models.CharField(max_length=120)
     is_correct = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.text} ({self.question.order_number})"
