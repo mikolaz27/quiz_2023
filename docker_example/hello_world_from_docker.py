@@ -16,3 +16,9 @@ while True:
 # docker run --rm -it -d --name while_cont  while_image
 
 # docker run --rm -it -d --name quiz_cont  quiz_image
+
+# docker run --rm -it -d -p 8010:8000 -v D:\Hillel\quiz_2023\src\:/quizez/src --name quiz_cont  quiz_image
+#CMD ["python", "src/manage.py", "runserver", "0:8000"]
+# docker run --rm -it -p 8010:8000 -v D:\Hillel\quiz_2023\src\:/quizez/src --name quiz_cont quiz_image python src/manage.py runserver 0:8000
+
+# docker build  -t quiz_image .

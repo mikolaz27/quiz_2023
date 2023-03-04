@@ -8,6 +8,9 @@ from core.models import BaseModel
 class Category(BaseModel):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return f"{self.name} ({self.pk})"
+
 
 class Quiz(BaseModel):
     QUESTION_MAX_LIMIT = 20
