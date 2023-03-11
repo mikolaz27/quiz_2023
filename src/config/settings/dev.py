@@ -1,5 +1,7 @@
 import os
 
+import mongoengine
+
 from config.settings.base import *  # noqa
 
 DEBUG = True
@@ -7,6 +9,9 @@ DEBUG = True
 SECRET_KEY = "django-secret-key"
 
 ALLOWED_HOSTS = []
+
+mongoengine.connect(host="mongodb://admin:admin@mongodb:27017/mongodb_content?authSource=admin")
+
 
 if os.environ.get("GITHUB_WORKFLOW"):
     DATABASES = {
