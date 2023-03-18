@@ -8,10 +8,10 @@ SECRET_KEY = "django-secret-key"
 
 ALLOWED_HOSTS = ["localhost"]
 
-STATIC_ROOT = BASE_DIR.parent / "static/"
+STATIC_ROOT = BASE_DIR / "static/"
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = BASE_DIR.parent / "media/"
+MEDIA_ROOT = BASE_DIR / "media/"
 MEDIA_URL = "/media/"
 
 DATABASES = {
